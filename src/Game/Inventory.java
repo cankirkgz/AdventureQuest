@@ -10,6 +10,7 @@ public class Inventory {
     private boolean firewood;
     private boolean water;
 
+    // Constructor for the Inventory class
     public Inventory() {
         this.weapon = new Weapon(0, "Yumruk", 0, 0) {};
         this.armor = new Armor(0, "Yok", 0, 0) {};
@@ -18,6 +19,7 @@ public class Inventory {
         this.water = false;
     }
 
+    // Getter and setter methods for weapon
     public Weapon getWeapon() {
         return weapon;
     }
@@ -31,6 +33,7 @@ public class Inventory {
         }
     }
 
+    // Getter and setter methods for armor
     public Armor getArmor() {
         return armor;
     }
@@ -44,6 +47,7 @@ public class Inventory {
         }
     }
 
+    // Getter and setter methods for food
     public boolean hasFood() {
         return food;
     }
@@ -52,6 +56,7 @@ public class Inventory {
         this.food = food;
     }
 
+    // Getter and setter methods for firewood
     public boolean hasFirewood() {
         return firewood;
     }
@@ -60,6 +65,7 @@ public class Inventory {
         this.firewood = firewood;
     }
 
+    // Getter and setter methods for water
     public boolean hasWater() {
         return water;
     }
@@ -68,6 +74,7 @@ public class Inventory {
         this.water = water;
     }
 
+    // Generates a string representation of the inventory
     public String toString() {
         String foodStatus = hasFood() ? "Mevcut" : "Mevcut değil";
         String firewoodStatus = hasFirewood() ? "Mevcut" : "Mevcut değil";
@@ -85,6 +92,7 @@ public class Inventory {
         return result;
     }
 
+    // Checks if the player has obtained all the necessary items
     public boolean checkAward() {
         return hasWater() && hasFood() && hasFirewood();
     }

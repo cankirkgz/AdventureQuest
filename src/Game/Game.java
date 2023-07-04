@@ -8,14 +8,16 @@ public class Game {
     private Location location; // Konum nesnesi
     private Scanner scanner = new Scanner(System.in); // Kullanıcıdan giriş almak için Scanner nesnesi
 
-    public Game() {
-    }
+    // Empty constructor for the Game class
+    public Game() {}
 
+    // Constructor for the Game class
     public Game(Player player, Location location) {
         this.player = player;
         this.location = location;
     }
 
+    // Getter and setter methods for player
     public Player getPlayer() {
         return player;
     }
@@ -24,6 +26,7 @@ public class Game {
         this.player = player;
     }
 
+    // Getter and setter methods for location
     public Location getLocation() {
         return location;
     }
@@ -32,16 +35,17 @@ public class Game {
         this.location = location;
     }
 
+    // Start the game
     public void start() {
         System.out.println("Macera oyununa hoş geldiniz!");
         System.out.print("Lütfen bir isim giriniz: ");
         String playerName = scanner.next();
-        player = new Player(playerName); // Oyuncu nesnesi oluşturuluyor
+        player = new Player(playerName); // Oyuncu nesnesi oluşturuluyor // Create a player object
         System.out.println("Hoşgeldin " + player.getPlayerName());
         System.out.println("Bir zamanlar uzak bir diyarın sakinleri huzur içinde yaşarken, " +
                 "korkunç bir karanlık güç dünyayı tehdit etmeye başladı. \nBu güç, kötülük dolu " +
                 "canavarları ortaya çıkarıyor ve masum insanları korku içinde bırakıyordu.");
-        player.selectChar(); // Oyuncunun karakteri seçiliyor
+        player.selectChar(); // Oyuncunun karakteri seçiliyor // Let the player select a character
 
         Location[] locations = {
                 new SaveHouse(player), // Güvenli Ev konumu

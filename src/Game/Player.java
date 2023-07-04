@@ -19,11 +19,13 @@ public class Player {
 
     Scanner scanner = new Scanner(System.in);
 
+    // Constructor for the Player class
     public Player(String name) {
         this.playerName = name;
         this.inventory = new Inventory();
     }
 
+    // Getter and setter methods for charName
     public String getCharName() {
         return charName;
     }
@@ -32,6 +34,7 @@ public class Player {
         this.charName = charName;
     }
 
+    // Calculates the total damage of the player
     public int getTotalDamage() {
         try {
             return (damage + inventory.getWeapon().getDamage());
@@ -41,6 +44,7 @@ public class Player {
         return damage;
     }
 
+    // Getter and setter methods for damage
     public int getDamage() {
         return damage;
     }
@@ -49,6 +53,7 @@ public class Player {
         this.damage = damage;
     }
 
+    // Getter and setter methods for health
     public int getHealth() {
         return health;
     }
@@ -59,6 +64,7 @@ public class Player {
         this.health = health;
     }
 
+    // Getter and setter methods for money
     public int getMoney() {
         return money;
     }
@@ -67,6 +73,7 @@ public class Player {
         this.money = money;
     }
 
+    // Getter and setter methods for playerName
     public String getPlayerName() {
         return playerName;
     }
@@ -75,6 +82,7 @@ public class Player {
         this.playerName = playerName;
     }
 
+    // Getter and setter methods for inventory
     public Inventory getInventory() {
         return inventory;
     }
@@ -83,6 +91,7 @@ public class Player {
         this.inventory = inventory;
     }
 
+    // Getter and setter methods for initHealth
     public int getInitHealth() {
         return initHealth;
     }
@@ -91,6 +100,7 @@ public class Player {
         this.initHealth = initHealth;
     }
 
+    // Allows the player to select a character
     public void selectChar() {
 
         GameChar[] gameChar = {new Samurai(), new Archer(), new Knight()};
@@ -108,6 +118,7 @@ public class Player {
         initPlayer(gameChar[character - 1]);
     }
 
+    // Initializes the player with the selected character
     private void initPlayer(GameChar gameChar) {
         setCharName(gameChar.getName());
         setHealth(gameChar.getHealth());
@@ -123,12 +134,14 @@ public class Player {
         System.out.println("---------------------------------------------------------------------------");
     }
 
+    // Displays the attributes of each character
     private void getSpecies(String name, int damage, int health, int money) {
         String result = name + " karakterinin özellikleri: \tSağlık: " + health + "\tHasar: " + damage
                 + "\tPara: " + money;
         System.out.println(result);
     }
 
+    // Displays the player's information, including the equipped weapon and armor
     public void getInfo() {
         String result = getCharName() + " karakterinin özellikleri: \tSağlık: " + getHealth() + "\tHasar: " + getTotalDamage()
                 + "\tPara: " + getMoney() + "\nSilahınız: " + getInventory().getWeapon().getName()
@@ -137,11 +150,13 @@ public class Player {
         System.out.println(result);
     }
 
+    // Displays the player's inventory
     public void showInventory() {
         String inventory = this.getInventory().toString();
         System.out.println(inventory);
     }
 
+    // Takes player input within the specified range
     private int getPlayerInput(int min, int max) {
         int input = scanner.nextInt();
         while (input < min || input > max) {
